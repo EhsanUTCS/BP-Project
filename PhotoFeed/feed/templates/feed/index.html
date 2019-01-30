@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>PhotoFeed | Powered By Django</title>
+		<link rel="stylesheet" type="text/css" href="{% static 'feed/index.css' %}">
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<h1>PhotoFeed</h1>
+				<h2>Powered By Django</h2>
+			</div>
+			<div class="box uploadBox">
+					<div class="header">
+						Upload an Image
+					</div>
+					<h3>You can Upload your own image below</h3>
+					<form action="{{ request.build_absolute_uri }}upload/" method="POST" enctype="multipart/form-data">
+						<!-- <input class="upper" type="file" name="file"/> -->
+						<!-- <br /> -->
+						<input type="file" multiple class="form-control">
+						<label for="file-upload" class="custom-file-upload"></label>
+						<input class="lower" type="submit" value="Upload File" />
+					</form>
+				</div>
+			<div class="box">
+				<div class="header">
+					Date Published
+				</div>
+				test text
+				fhjdashgdhsafj;lkdsahfdhgkjlfds
+			</div>
+		</div>
+	</body>
+</html>

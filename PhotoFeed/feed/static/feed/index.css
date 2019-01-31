@@ -1,6 +1,6 @@
 .container
 {
-    width: 80%;
+    width: 70% !important;
     margin: auto;
 }
 .container h1, .container h2, .box h3, .box form
@@ -18,7 +18,7 @@
 {
     text-align: center;
     border-radius: 5px 5px 0 0;
-    background: #343434;
+    background: #6c6c6c;
     color: #ffffff;
     padding: 5px;
     font-size: 18px;

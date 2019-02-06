@@ -1,0 +1,25 @@
+.container
+{
+    width: 70% !important;
+    margin: auto;
+}
+img 
+{
+    margin: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0px #ff5b57;
+}
+.imageArea
+{
+    margin-bottom: 30px;
+}
+.tools
+{
+    width: 60%;
+    margin: auto;
+}
+.container h2
+{
+    text-align: center;
+}

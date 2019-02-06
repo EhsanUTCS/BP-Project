@@ -76,7 +76,7 @@ input[type="file"]
 {
     margin-bottom: 60px;
 }
-.box input.lower:focus 
+.box button.lower:focus 
 {
     border: none;    
 }

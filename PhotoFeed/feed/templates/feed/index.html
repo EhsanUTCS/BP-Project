@@ -16,12 +16,14 @@
 						Upload an Image
 					</div>
 					<h3>You can Upload your own image below</h3>
-					<form method="POST" enctype="multipart/form-data">
+					<form action={% url 'upload' %} method="POST" enctype="multipart/form-data">
+						{% csrf_token %}
 						<!-- <input class="upper" type="file" name="file"/> -->
 						<!-- <br /> -->
-						<input type="file" multiple class="form-control">
+						<input type="file" name='photo' class="form-control">
 						<label for="file-upload" class="custom-file-upload"></label>
 						<input class="lower" type="submit" value="Upload File" />
+						<!-- <button class="lower" type="submit">Upload</button> -->
 					</form>
 				</div>
 			<div class="box">

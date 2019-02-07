@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    path('editor', include('peditor.urls')),
+    path('editor/', include('peditor.urls')),
     path('', include('feed.urls')),
 ]
 

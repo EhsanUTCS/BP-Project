@@ -12,13 +12,45 @@
 				<img src="{{ post.photo.url }}">
 			</div>
 			<h2>Tools</h2>
+			
+			{% if error_message %}
+				<center><h3 style="color : red;">{{ error_message }}</h3></center>
+			{% endif %}
 			<div class="tools">
-				<form action={% url 'using_tools' %} method="POST" enctype="multipart/form-data">
+				<form action={% url 'black_and_white' %} method="POST" enctype="multipart/form-data">
 					{% csrf_token %}
-					<button type="submit" name = crop>
+					<button type="submit">B&W</button>
+				</form>
+				<form action={% url 'crop' %} method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<input name="left" type="text" value="" placeholder="Left"/>
+					<input name="upper" type="text" value="" placeholder="Upper"/>
+					<input name="right" type="text" value="" placeholder="Right"/>
+					<input name="lower" type="text" value="" placeholder="Lower"/>
+					<button type="submit">
 						<i class="fa fa-crop-alt"></i>
 					</button>
-					<button type="submit" name="black_and_white">B&W</button>
+				</form>
+				<form action={% url 'resize' %} method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<input name="width" type="text" value="" placeholder="Width"/>
+					<input name="height" type="text" value="" placeholder="Height"/>
+					<button type="submit">
+						<i class="fa fa-arrows-alt"></i>
+					</button>
+				</form>
+				<form action={% url 'rotate' %} method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<input name="angle" type="text" value="" placeholder="Angle"/>
+					<button type="submit">
+						<i class="fa fa-rotate-right"></i>
+					</button>
+				</form>
+				<form action={% url 'share' %} method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					<button type="submit">
+						SHARE
+					</button>
 				</form>
 			</div>
 		</div>

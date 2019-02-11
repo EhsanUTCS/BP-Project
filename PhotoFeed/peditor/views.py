@@ -34,10 +34,6 @@ def crop (request):
     # form = Crop_Form(request.POST, request.FILES)
     if request.POST.get('a') != '' and request.POST.get('b') != '' and request.POST.get('c') != '' and request.POST.get('d') != '':
         # crop related code
-        # a = form.fields['a']
-        # b = form.fields['b']
-        # c = form.fields['c']
-        # d = form.fields['d']
         a = int(request.POST.get('left'))
         b = int(request.POST.get('upper'))
         c = int(request.POST.get('right'))
@@ -81,7 +77,7 @@ def rotate (request):
     if request.POST.get('angle') != '':
         # crop related code
         angle = int(request.POST.get('angle'))
-        changed_image = pil_image.rotate(angle)
+        changed_image = pil_image.rotate(angle, expand=1)
         changed_image.save(post.photo.url[1:])
         post.save(update_fields = ['photo'])
     else:

@@ -18,16 +18,13 @@ def index(request):
     })
 
 def upload_img(request):
-    if request.POST.has_key('photo'):
-        if request.method == 'POST' and request.FILES['photo']:
-            img = request.FILES['photo']
-            post = Post(name=img.name, photo=img)
-            post.save()
-            request.session['photo_pk'] = post.pk
-            context = {
-                'post': post,
-                'crop_form': Crop_Form
-            }
-    else:
-        return HttpResponse('hi')
+    if request.method == 'POST':
+        img = request.FILES['photo']
+        post = Post(name=img.name, photo=img)
+        post.save()
+        request.session['photo_pk'] = post.pk
+        context = {
+            'post': post,
+            'crop_form': Crop_Form
+        }
         return render(request, 'peditor/editor.html', context = context)

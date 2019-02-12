@@ -22,7 +22,15 @@
 					<div class="header">
 						Upload an Image
 					</div>
-					<h3 style="color:white;">You can Upload your own image below</h3>
+					
+					
+					{% if error_message %}
+						<h3 style="color:red;">{{ error_message }}</h3>
+					{% else %}
+						<h3 style="color:white;">You can Upload your own image below</h3>
+					{% endif %}
+						
+						
 					<form action={% url 'upload' %} method="POST" enctype="multipart/form-data">
 						{% csrf_token %}
 						<input type="file" name='photo' class="form-control">

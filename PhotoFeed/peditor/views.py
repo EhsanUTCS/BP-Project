@@ -32,7 +32,7 @@ def crop (request):
     post = Post.objects.get(pk = request.session['photo_pk'])
     pil_image = Image.open(post.photo.url[1:])
     # form = Crop_Form(request.POST, request.FILES)
-    if request.POST.get('a') != '' and request.POST.get('b') != '' and request.POST.get('c') != '' and request.POST.get('d') != '':
+    try:
         # crop related code
         a = int(request.POST.get('left'))
         b = int(request.POST.get('upper'))
@@ -41,7 +41,7 @@ def crop (request):
         changed_image = pil_image.crop((a, b, c, d))
         changed_image.save(post.photo.url[1:])
         post.save(update_fields = ['photo'])
-    else:
+    except ValueError:
         return render(request, 'peditor/editor.html', {
             'post' : post,
             'error_message' : "You Must Fill All Fields"

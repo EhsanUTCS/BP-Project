@@ -1,3 +1,7 @@
+body 
+{
+    background: #1d1d1d;
+}
 .container
 {
     width: 70% !important;
@@ -22,4 +26,23 @@ img
 .container h2
 {
     text-align: center;
+    color: white;
+}
+button
+{
+    width: 100%;
+    margin: 10px 0;
+    font-size: 15px;
+    margin-bottom: 40px;
+}
+button:hover
+{
+    box-shadow: 0 0 20px 0px #ff5b57;
+    /* color: green; */
+    background: cyan;
+    border-radius: 4px;
+}
+input
+{
+    width: 47.4%;
 }

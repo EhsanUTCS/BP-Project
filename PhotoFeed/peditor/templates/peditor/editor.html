@@ -23,10 +23,10 @@
 				</form>
 				<form action={% url 'crop' %} method="POST" enctype="multipart/form-data">
 					{% csrf_token %}
-					<input name="left" type="text" value="" placeholder="Left"/>
-					<input name="upper" type="text" value="" placeholder="Upper"/>
-					<input name="right" type="text" value="" placeholder="Right"/>
-					<input name="lower" type="text" value="" placeholder="Lower"/>
+					<input name="left" type="text" value="" placeholder="Left" />
+					<input name="upper" type="text" value="" placeholder="Upper" />
+					<input name="right" type="text" value="" placeholder="Right" />
+					<input name="lower" type="text" value="" placeholder="Lower" />
 					<button type="submit">
 						<i class="fa fa-crop-alt"></i>
 					</button>
@@ -41,10 +41,11 @@
 				</form>
 				<form action={% url 'rotate' %} method="POST" enctype="multipart/form-data">
 					{% csrf_token %}
-					<input name="angle" type="text" value="" placeholder="Angle"/>
-					<button type="submit">
-						<i class="fa fa-rotate-right"></i>
-					</button>
+					<center><input name="angle" type="text" value="" placeholder="Angle" style="margin-bottom:-10px;"/></center><br/>
+					<center><button type="submit" style="width: 50%;">
+						<!-- <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> -->
+						Rotate
+					</button></center>
 				</form>
 				<form action={% url 'share' %} method="POST" enctype="multipart/form-data">
 					{% csrf_token %}

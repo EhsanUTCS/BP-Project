@@ -4,36 +4,42 @@
 	<head>
 		<title>PhotoFeed | Powered By Django</title>
 		<link rel="stylesheet" type="text/css" href="{% static 'feed/index.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'feed/css/bootstrap.min.css' %}">
+		<script src="{% static 'feed/js/bootstrap.min.js' %}"></script>
+		<script src="{% static 'feed/jquery.min.js' %}"></script>
+		<link rel="stylesheet" type="text/css" href="{% static 'feed/jquery.fancybox.min.css' %}" media="screen">
+		<script src="{% static 'feed/jquery.fancybox.min.js' %}"></script>
+		<script src="{% static 'feed/index.js' %}"></script>
 	</head>
 	<body>
-		<div class="container">
+		<div class="container page-top">
 			<div class="header">
 				<h1>PhotoFeed</h1>
 				<h2>Powered By Django</h2>
 			</div>
 			<div class="box uploadBox">
+				<center>
 					<div class="header">
 						Upload an Image
 					</div>
-					<h3>You can Upload your own image below</h3>
+					<h3 style="color:white;">You can Upload your own image below</h3>
 					<form action={% url 'upload' %} method="POST" enctype="multipart/form-data">
 						{% csrf_token %}
-						<!-- <input class="upper" type="file" name="file"/> -->
-						<!-- <br /> -->
 						<input type="file" name='photo' class="form-control">
 						<label for="file-upload" class="custom-file-upload"></label>
 						<input class="lower" type="submit" value="Upload File" />
-						<!-- <button class="lower" type="submit">Upload</button> -->
 					</form>
+				</center>
 				</div>
-			{% for pic_post in posts %}
-				<div class="box">
-					<div class="header">
-						{{ pic_post.pub_date }}
-					</div>
-					<img src="{{ pic_post.photo.url }}">
+				<div class="row">
+					{% for pic_post in posts %}
+						<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+							<a href="{{ pic_post.photo.url }}" class="fancybox" rel="ligthbox">
+								<img  src="{{ pic_post.photo.url }}" class="zoom img-fluid "  alt="">
+							</a>
+						</div>
+					{% endfor %}
 				</div>
-			{% endfor %}
-		</div>
+			</div>
 	</body>
 </html>
